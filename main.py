@@ -13,12 +13,16 @@ st.set_page_config(
 st.markdown(
     """
     <style>
+        /* Light theme background and font settings */
         .main {
-            background-color: #f8f9fa;
+            background-color: #FAFAFA;  /* Soft off-white background */
+            color: #212121;  /* Dark gray text for readability */
         }
-        .stButton>button {
-            background-color: #0056b3;
-            color: white;
+
+        /* Styling the button container and text */
+        .stButton > button {
+            background-color: #FF7043 !important;  /* Coral button color */
+            color: white !important;  /* White text inside the button */
             border-radius: 8px;
             padding: 12px 25px;
             font-size: 16px;
@@ -26,26 +30,60 @@ st.markdown(
             border: none;
             transition: 0.3s ease;
         }
-        .stButton>button:hover {
-            background-color: #004494;
+
+        /* Hover effect for the button */
+        .stButton > button:hover {
+            background-color: #F4511E !important;  /* Darker coral for hover effect */
         }
+
+        /* Title and content styling */
         .title-text {
-            color: #4CAF50;
+            color: #00796B;  /* Bold teal for title */
             font-size: 36px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
+
         .result-container {
-            background-color: #ffffff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: #FFF9C4;  /* Light pastel yellow-green for results */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
         }
+
         .metric-title {
-            color: #007BFF;
+            color: #388E3C;  /* Dark green for metric titles */
             font-size: 18px;
             font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .input-section {
+            margin-bottom: 20px;
+        }
+
+        .stSelectbox, .stNumberInput {
+            background-color: #E1F5FE;  /* Soft light blue for input fields */
+            color: #212121;  /* Dark text for inputs */
+            border-radius: 8px;
+            padding: 12px;
+            margin: 8px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .stMetric {
+            background-color: #FFF9C4;  /* Light pastel yellow-green for metrics */
+            border-radius: 8px;
+            padding: 12px;
+            color: #212121;  /* Dark text inside the metric boxes */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Progress bar color */
+        .stProgress > div > div {
+            background-color: #66BB6A;  /* Bright green progress bar */
         }
     </style>
     """,
@@ -84,7 +122,8 @@ with row2[2]:
 with row3[0]:
     delinquency_ratio = st.number_input('⚖️ Delinquency Ratio (%)', min_value=0, max_value=100, step=1, value=30)
 with row3[1]:
-    credit_utilization_ratio = st.number_input('📊 Credit Utilization Ratio (%)', min_value=0, max_value=100, step=1, value=30)
+    credit_utilization_ratio = st.number_input('📊 Credit Utilization Ratio (%)', min_value=0, max_value=100, step=1,
+                                               value=30)
 with row3[2]:
     num_open_accounts = st.number_input('🔓 Open Loan Accounts', min_value=1, max_value=4, step=1, value=2)
 
