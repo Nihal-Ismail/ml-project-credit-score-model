@@ -6,7 +6,6 @@ st.set_page_config(
     page_title="Lauki Finance: Credit Risk Modelling",
     page_icon="📊",
     layout="wide",
-    initial_sidebar_state="expanded",
 )
 
 # Custom CSS for a light theme
