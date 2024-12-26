@@ -8,94 +8,13 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+# Load the CSS file
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# Custom CSS for a light theme
-st.markdown(
-    """
-    <style>
-        /* Main light theme styling */
-        .main {
-            background-color: #FFFFFF;  /* White background */
-            color: #333333;  /* Dark gray text for readability */
-        }
-
-        /* Styling the button container and text */
-        .stButton > button {
-            background-color: #007BFF !important;  /* Bright blue for buttons */
-            color: white !important;  /* White text inside the button */
-            border-radius: 8px;
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            transition: 0.3s ease;
-        }
-
-        /* Hover effect for the button */
-        .stButton > button:hover {
-            background-color: #0056b3 !important;  /* Darker blue for hover */
-        }
-
-        /* Title and content styling */
-        .title-text {
-            color: #1A237E;  /* Indigo for title */
-            font-size: 36px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .result-container {
-            background-color: #E8F5E9;  /* Light green background for results */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        .metric-title {
-            color: #2E7D32;  /* Dark green for metric titles */
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .input-section {
-            margin-bottom: 20px;
-        }
-
-        .stSelectbox, .stNumberInput {
-            background-color: #F1F8FF;  /* Light blue for input fields */
-            color: #333333;  /* Dark text for inputs */
-            border-radius: 8px;
-            padding: 12px;
-            margin: 8px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .stMetric {
-            background-color: #FFF9C4;  /* Light pastel yellow-green for metrics */
-            border-radius: 8px;
-            padding: 12px;
-            color: #333333;  /* Dark text inside the metric boxes */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Progress bar color */
-        .stProgress > div > div {
-            background-color: #4CAF50;  /* Green progress bar */
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
 
 # App title
 st.markdown('<div class="title-text">📊 Lauki Finance: Credit Risk Modelling</div>', unsafe_allow_html=True)
-
-# Add an option to choose theme (always light in this implementation)
-st.sidebar.markdown("### App Customization")
-st.sidebar.info("Currently, only the **light theme** is available for a consistent experience.")
 
 # Inputs: Organize with columns and sections
 st.markdown("### 🔢 Input Customer Details")
