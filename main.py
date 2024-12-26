@@ -6,36 +6,37 @@ st.set_page_config(
     page_title="Lauki Finance: Credit Risk Modelling",
     page_icon="📊",
     layout="wide",
+    initial_sidebar_state="expanded",
 )
 
 # Custom CSS for a light theme
 st.markdown(
     """
     <style>
-        /* Main light theme styling */
-        .main {
-            background-color: #FFFFFF;  /* White background */
-            color: #333333;  /* Dark gray text for readability */
+        /* Main page styling */
+        .css-1d391kg {
+            background-color: #FFFFFF !important;  /* White background */
+            color: #333333 !important;  /* Dark gray text for readability */
         }
 
-        /* Styling the button container and text */
-        .stButton > button {
+        /* Button styles */
+        .stButton button {
             background-color: #007BFF !important;  /* Bright blue for buttons */
             color: white !important;  /* White text inside the button */
-            border-radius: 8px;
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            transition: 0.3s ease;
+            border-radius: 8px !important;
+            padding: 12px 25px !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            border: none !important;
+            transition: 0.3s ease !important;
         }
 
         /* Hover effect for the button */
-        .stButton > button:hover {
+        .stButton button:hover {
             background-color: #0056b3 !important;  /* Darker blue for hover */
         }
 
-        /* Title and content styling */
+        /* Title styling */
         .title-text {
             color: #1A237E;  /* Indigo for title */
             font-size: 36px;
@@ -44,45 +45,18 @@ st.markdown(
             margin-bottom: 30px;
         }
 
-        .result-container {
-            background-color: #E8F5E9;  /* Light green background for results */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        .metric-title {
-            color: #2E7D32;  /* Dark green for metric titles */
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .input-section {
-            margin-bottom: 20px;
-        }
-
-        .stSelectbox, .stNumberInput {
-            background-color: #F1F8FF;  /* Light blue for input fields */
-            color: #333333;  /* Dark text for inputs */
-            border-radius: 8px;
-            padding: 12px;
-            margin: 8px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
+        /* Metric container */
         .stMetric {
-            background-color: #FFF9C4;  /* Light pastel yellow-green for metrics */
-            border-radius: 8px;
-            padding: 12px;
-            color: #333333;  /* Dark text inside the metric boxes */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: #FFF9C4 !important;  /* Light pastel yellow for metrics */
+            border-radius: 8px !important;
+            padding: 12px !important;
+            color: #333333 !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
         }
 
-        /* Progress bar color */
-        .stProgress > div > div {
-            background-color: #4CAF50;  /* Green progress bar */
+        /* Progress bar styling */
+        div[data-testid="stProgress"] > div > div {
+            background-color: #4CAF50 !important;  /* Green progress bar */
         }
     </style>
     """,
@@ -92,11 +66,11 @@ st.markdown(
 # App title
 st.markdown('<div class="title-text">📊 Lauki Finance: Credit Risk Modelling</div>', unsafe_allow_html=True)
 
-# Add an option to choose theme (always light in this implementation)
+# Sidebar for theme customization (light theme fixed for now)
 st.sidebar.markdown("### App Customization")
 st.sidebar.info("Currently, only the **light theme** is available for a consistent experience.")
 
-# Inputs: Organize with columns and sections
+# Input section
 st.markdown("### 🔢 Input Customer Details")
 row1 = st.columns(3)
 row2 = st.columns(3)
@@ -125,8 +99,7 @@ with row2[2]:
 with row3[0]:
     delinquency_ratio = st.number_input('⚖️ Delinquency Ratio (%)', min_value=0, max_value=100, step=1, value=30)
 with row3[1]:
-    credit_utilization_ratio = st.number_input('📊 Credit Utilization Ratio (%)', min_value=0, max_value=100, step=1,
-                                               value=30)
+    credit_utilization_ratio = st.number_input('📊 Credit Utilization Ratio (%)', min_value=0, max_value=100, step=1, value=30)
 with row3[2]:
     num_open_accounts = st.number_input('🔓 Open Loan Accounts', min_value=1, max_value=4, step=1, value=2)
 
