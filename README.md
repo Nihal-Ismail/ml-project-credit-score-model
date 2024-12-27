@@ -3,6 +3,10 @@
 ## Overview
 This repository contains a machine learning project for predicting credit scores. The project includes code for data processing, model training, and deployment through a Streamlit web application. It is structured to make it easy to understand, use, and extend.
 
+## Application Link
+
+Access the deployed application here: [Streamlit Application](https://ml-project-credit-score-model.streamlit.app/)
+
 ## Repository Structure
 
 - **Code**: Contains Jupyter Notebook files for data analysis and model training, as well as the dataset used in the project.
