@@ -33,8 +33,8 @@ st.markdown(
 
         /* Button styling */
         div.stButton > button {
-            background-color: #FF7043;
-            color: white;
+            background-color: #1E88E5; /* Royal Blue */
+            color: white; /* White text for contrast */
             border-radius: 8px;
             padding: 10px 20px;
             font-size: 16px;
@@ -43,12 +43,12 @@ st.markdown(
             transition: background-color 0.3s ease;
         }
         div.stButton > button:hover {
-            background-color: #F4511E;
+            background-color: #1565C0; /* Darker Royal Blue for hover effect */
         }
 
         /* Metric styling */
         .stMetric {
-            background-color: #FFF9C4;
+            background-color: #E8F5E9;
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -86,12 +86,13 @@ with row1[1]:
     income = st.number_input('💰 Annual Income', min_value=0, value=1200000)
 with row1[2]:
     loan_amount = st.number_input('🏦 Loan Amount', min_value=0, value=2560000)
+
 # Loan-to-Income Ratio with label above the yellow box
 loan_to_income_ratio = loan_amount / income if income > 0 else 0
 with row2[0]:
     st.markdown(
         """
-        <div style="color: #388E3C; font-weight: Medium; font-size: 16px; margin-bottom: 1px;">
+        <div style="color: #212121; font-weight: Medium; font-size: 16px; margin-bottom: 1px;">
             Loan-to-Income Ratio
         </div>
         """,
@@ -99,14 +100,13 @@ with row2[0]:
     )
     st.markdown(
         f"""
-        <div style="background-color: #FFF9C4; padding: 5px; border-radius: 5px; 
+        <div style="background-color: #FFF8E1; padding: 5px; border-radius: 5px; 
                     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); text-align: center;">
             <div style="font-size: 20px; font-weight: bold; color: #212121;">{loan_to_income_ratio:.2f}</div>
         </div>
         """,
         unsafe_allow_html=True,
     )
-
 
 # Other inputs
 with row2[1]:
@@ -141,12 +141,45 @@ if st.button('🔍 Calculate Risk'):
     # Display results in an attractive layout
     st.markdown("#### Results")
     result_col1, result_col2, result_col3 = st.columns(3)
+
+    # Default Probability
     with result_col1:
-        st.metric(label="Default Probability", value=f"{probability:.2%}")
+        st.markdown(
+            f"""
+            <div style="background-color: #FFF3E0; padding: 15px; border-radius: 10px; 
+                        text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div style="font-size: 18px; font-weight: bold; color: #FF8F00;">Default Probability</div>
+                <div style="font-size: 24px; font-weight: bold; color: #FF8F00;">{probability:.2%}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Credit Score
     with result_col2:
-        st.metric(label="Credit Score", value=credit_score)
+        st.markdown(
+            f"""
+            <div style="background-color: #E8F5E9; padding: 15px; border-radius: 10px; 
+                        text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div style="font-size: 18px; font-weight: bold; color: #388E3C;">Credit Score</div>
+                <div style="font-size: 24px; font-weight: bold; color: #388E3C;">{credit_score}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # Rating
     with result_col3:
-        st.metric(label="Rating", value=rating)
+        st.markdown(
+            f"""
+            <div style="background-color: #E3F2FD; padding: 15px; border-radius: 10px; 
+                        text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div style="font-size: 18px; font-weight: bold; color: #1976D2;">Rating</div>
+                <div style="font-size: 24px; font-weight: bold; color: #1976D2;">{rating}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 else:
     st.info("Enter all inputs and click '🔍 Calculate Risk' to see results.")
 
