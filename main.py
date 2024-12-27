@@ -138,6 +138,15 @@ if st.button('🔍 Calculate Risk'):
         residence_type, loan_purpose, loan_type
     )
 
+    # Conditional coloring based on the rating
+    rating_colors = {
+        "Poor": "#D32F2F",      # Red for Poor
+        "Average": "#FFB74D",   # Lighter Amber for Average
+        "Good": "#388E3C",      # Green for Good
+        "Excellent": "#1976D2", # Blue for Excellent
+    }
+    rating_color = rating_colors.get(rating, "#000000")  # Default to black if the rating isn't recognized
+
     # Display results in an attractive layout
     st.markdown("#### Results")
     result_col1, result_col2, result_col3 = st.columns(3)
@@ -146,10 +155,10 @@ if st.button('🔍 Calculate Risk'):
     with result_col1:
         st.markdown(
             f"""
-            <div style="background-color: #FFF3E0; padding: 15px; border-radius: 10px; 
+            <div style="background-color: #EDE7F6; padding: 15px; border-radius: 10px; 
                         text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                <div style="font-size: 18px; font-weight: bold; color: #FF8F00;">Default Probability</div>
-                <div style="font-size: 24px; font-weight: bold; color: #FF8F00;">{probability:.2%}</div>
+                <div style="font-size: 18px; font-weight: bold; color: #7E57C2;">Default Probability</div>
+                <div style="font-size: 24px; font-weight: bold; color: #7E57C2;">{probability:.2%}</div>
             </div>
             """,
             unsafe_allow_html=True,
@@ -172,10 +181,10 @@ if st.button('🔍 Calculate Risk'):
     with result_col3:
         st.markdown(
             f"""
-            <div style="background-color: #E3F2FD; padding: 15px; border-radius: 10px; 
+            <div style="background-color: {rating_color}; padding: 15px; border-radius: 10px; 
                         text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                <div style="font-size: 18px; font-weight: bold; color: #1976D2;">Rating</div>
-                <div style="font-size: 24px; font-weight: bold; color: #1976D2;">{rating}</div>
+                <div style="font-size: 18px; font-weight: bold; color: white;">Rating</div>
+                <div style="font-size: 24px; font-weight: bold; color: white;">{rating}</div>
             </div>
             """,
             unsafe_allow_html=True,
